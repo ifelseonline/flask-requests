@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }}</title>
+
+    <style>
+        * { margin: 0; padding: 0; }
+        body {
+            display: flex;
+            min-height: 100vh;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .pokemon {
+            width: 150px;
+            height: 170px;
+            text-align: center;
+            background-color: #ddd;
+            border: 1px solid #777;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .pokemon img {
+            width: 100%;
+        }
+        .add-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <a class='add-btn' href='/add'>
+        <button>Adicionar Pokemon</button>
+    </a>
+    {% for nome, url in pokemons %}
+        <a href='/poke/{{loop.index0}}'>
+            <div class='pokemon'>
+                <img src='{{url}}' >
+                <span>{{ nome }}</span>
+            </div>
+        </a>
+    {% endfor %}
+</body>
+</html>
