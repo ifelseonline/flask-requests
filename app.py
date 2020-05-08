@@ -21,7 +21,8 @@ def pokemon(id):
     poke = pokemons[id]
     return render_template(
         'pokemon.html',
-        pokemon=poke
+        pokemon=poke,
+        id=id
     )
 
 @app.route('/add')
@@ -34,6 +35,11 @@ def store():
     img = request.form['img']
 
     pokemons.append([nome, img])
+    return redirect('/')
+
+@app.route('/delete/<int:id>')
+def delete(id):
+    del pokemons[id]
     return redirect('/')
 
 if __name__ == '__main__':
