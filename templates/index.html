@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 <body>
-    <a class='add-btn' href='/add'>
-        <button>Adicionar Pokemon</button>
-    </a>
     {% for poke in pokemons %}
         <a href='/poke/{{loop.index0}}'>
             <div class='pokemon'>
